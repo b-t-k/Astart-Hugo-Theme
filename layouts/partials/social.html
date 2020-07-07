@@ -1,0 +1,23 @@
+<div class="social">
+	{{ if isset .Site.Params "github" }}
+		<a class="social-icons social-icons-github" href="https://github.com/{{ .Site.Params.github }}"></a>
+	{{ end }}
+	{{ if isset .Site.Params "twitter" }}
+		<a class="social-icons social-icons-twitter" href="https://twitter.com/{{ .Site.Params.twitter }}"></a>
+	{{ end }}
+	{{ if isset .Site.Params "facebook" }}
+		<a class="social-icons social-icons-facebook" href="https://www.facebook.com/{{ .Site.Params.facebook }}"></a>
+	{{ end }}
+	{{ if isset .Site.Params "instagram" }}
+		<a class="social-icons social-icons-instagram" href="https://www.instagram.com/{{ .Site.Params.instagram }}"></a>
+	{{ end }}
+	{{ if isset .Site.Params "youtube" }}
+		<a class="social-icons social-icons-youtube" href="https://www.youtube.com/user/{{ .Site.Params.youtube }}"></a>
+	{{ end }}
+	{{ if isset .Site.Params "linkedin" }}
+		<a class="social-icons social-icons-linkedin" href="https://www.linkedin.com/in/{{ .Site.Params.linkedin }}"></a>
+	{{ end }}
+	{{ if isset .Site.Params "email" }}
+		<a class="social-icons social-icons-email" href="mailto:{{ $.Site.Params.email }}" onclick = "this.href=this.href .replace(/AT/,'&#64;') .replace(/DOT/,'&#46;')"></a>
+	{{ end }}
+</div>

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div id="intro">
+	<!--{{ .Date.Format "Jan 2 2006" }}-->
+	<h1 class="post__title">{{.Title}}<span class="fancy" style="color:{{ .Params.dotColor}};">.</span></h1>
+	<nav class="listmenu">
+		<ul class="menulist">
+			{{ range .Pages }}
+				<li><a href="{{.Permalink}}">{{.Title}}</a></li>
+			{{ end }}
+		</ul>
+	</nav>
+	{{ .Content | markdownify }}
+</div>
+{{ end }}
+

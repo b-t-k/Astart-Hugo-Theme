@@ -1,0 +1,21 @@
+{{/* 
+{{< booklist "magazines" >}} 
+- used to call json file
+- uses one parameter to call database name
+- 2 column format
+*/}} 
+
+{{ $data := index .Site.Data.publist (.Get 0) }}
+
+<div id="twocolumn">
+	{{ range $data }}
+		<p>
+			<b>{{.title}}</b><br>
+			{{- if  .author }}{{.author}}<br>{{end}}
+			{{.year}} {{.publisher}}<br>
+			{{ if .form }}{{.form}} — isbn {{.isbn}}<br>{{ end}}
+			<em>{{.task}}</em>
+		</p>
+	{{ end }}
+</div>
+<div class="clearfix"></div>

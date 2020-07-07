@@ -1,0 +1,489 @@
+/*!
+Theme Name: Astart
+Version: 1.0.0
+Domain: astart.ca
+*/
+
+/* ######
+TABLE OF CONTENTS
+
+BASIC HTML CODES
+	P, A, H1 ETC.
+	SPECIAL:  CLEARFIX, FANCY, IMG CENTER ETC.
+CONTAINERS
+	MAIN, SITEID, INNER, BOOKLIST, 2 COL
+BLOCKS & PARTIALS
+	HEADER, MAIN, LEFTCOLUMN, FOOTER
+	HOME PAGE
+MENU & NAV
+	MENU, MINI MENU
+RESPONSIVE LAYOUT CSS
+	MAX-WIDTH ETC.
+IMAGES & GALLERIES
+	GALLERY, VIDEO
+SOCIAL MEDIA
+	BAR, ICONS
+	
+###### */
+
+
+/* ######
+BASIC HTML CODES
+###### */
+
+
+
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+html, body {
+	background: #fff;
+}
+
+body{
+	hyphens: auto;
+}
+
+p{
+	
+	padding-bottom: .4em;
+	font-family: Quicksand;
+	}
+
+p a:link,
+p a:visited{
+	color:#545454;
+	text-decoration: none;
+	font-weight: 600;
+}
+
+h1{
+	hyphens: none;
+	text-align: left;
+	margin: .75em 0em .5em;
+	font-family: Quicksand;
+	font-weight: 300;
+}
+
+
+h2,
+h3{
+	hyphens: none;
+	text-align: left;
+	margin: .75em 0em .5em;
+	font-family: Quicksand;
+	font-weight: 400;
+}
+
+h4,
+h5,
+h6{
+	hyphens: none;
+	text-align: left;
+	margin: .75em 0em .5em;
+	font-family: Quicksand;
+	font-weight: 700;
+}
+
+blockquote + p,
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p,
+header + p,
+hr + p,
+ol + p,
+ul + p{
+	margin-top:1em;
+}
+
+blockquote{
+	margin: 2em 8em 2em 8em;
+	padding: 20px;
+	background-color: #fefeee;
+	border-radius: 5px;
+	box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.05);
+	z-index: 1;
+	font-size: .825em;
+}
+
+/* SPECIAL */
+
+.clearfix::after {/* clear after floats */
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.fancy{/*dot on homepage*/
+	font-size: 4.5em;
+	font-family: serif;
+	text-shadow: 2px 2px 5px #888;
+	line-height: 0%;
+}
+
+img.center{/*optional image centering*/
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+.fancybox-caption__body{/* Fancybox3 captions */
+	font-size: 16px;
+	font-family: Quicksand;
+	font-weight: 600;
+}
+
+/* #######
+CONTAINERS
+####### */
+
+#maincontainer{
+	text-height: 1.5em;
+	font-family: Sans-Serif;
+	font-size: .875em;
+}
+
+#contentwrapper{
+	/* contains both main and left column */
+}
+
+#siteid{
+	padding: 0 20px 20px 20px;
+}
+
+.inner{
+	/*Margins for inner DIV inside each column (to provide padding)*/
+	padding: 10px;
+}
+
+.ebooklist{
+	Float: left;
+	margin:10px 5px 70px 5px;
+	padding: 5px;
+	height: 200px;
+	width:140px;
+	text-align: center;
+}
+.ebooklist img{
+	width: 140px;
+}
+
+#twocolumn {
+	column-count: 2;
+}
+
+
+/* #######
+BLOCKS & PARTIALS
+####### */
+
+#header{
+/*	background: #fff200; /*yellow*/
+	background: #fff; 
+	height: 25px;
+}
+
+#main{
+	float: left;
+	width: 70%;
+	background: #fff;
+	color: #58595b;
+	max-width: 1200px;
+	margin-bottom: 60px; /*height of footer*/
+}
+
+#leftcolumn{
+	float: left;
+	width: 30%; /*Width of left column*/
+	background: #fff;
+	max-width: 300px;
+	margin-bottom: 60px; /*height of footer*/
+
+}
+#leftcolumn h2,
+#leftcolumn h3,
+#leftcolumn h4{
+	text-align:center;
+}
+
+#footer{
+	clear: left;
+	padding: 5px;
+	position:fixed;
+	left:0px;
+	bottom:0px;
+	height:30px;
+	width:100%;
+	background:#00aeef; /*cyan*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#footer a{
+	color: lightblue;
+	text-decoration: none;
+}
+
+/*  HOME PAGE  */
+
+#intro{
+	padding-top: 100px;
+	width: 600px;
+	margin-left:auto;
+	margin-right:auto;
+}
+#intro p{
+	padding-bottom: .75em;
+	font-size: 1.1em;
+	line-height:1.5em;
+	text-align:justify;
+}
+
+
+/* #######
+MENU & NAV
+####### */
+
+#menu{
+	text-align: center;
+	padding: 20px;
+	text-transform: uppercase;
+	font-family: Quicksand;
+}
+
+#menu:before,
+#menu:after {
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom:5px;
+	margin-top:5px;
+	width:40%;
+	content:' ';
+	display:block;
+	border-bottom:2px solid #ec008c;/*magenta*/
+	border-radius:2px;
+}
+
+.menulist li, 
+.menulist a{
+	list-style-type: none;
+	text-decoration: none;
+	margin-bottom: 5px;
+	color: #888888;
+}
+
+.active a{
+	color: #ec008c;/*magenta*/
+}
+
+.menulist a:hover{
+	color: #ec008c;
+}
+
+.listmenu{
+	text-align: left;
+	margin: 0  0 20px 20px;
+	text-transform: uppercase;
+	font-family: Quicksand;
+}
+
+.listmenu::after {
+	content: '';
+	width: 25%;
+	height: .1em;
+	display: block;
+	background-color: #bbb;
+}
+
+.sub-menu {
+	text-align: center;
+	padding: 0px;
+	text-transform: lowercase;
+}
+
+.dropdown {
+	position: relative;
+/*	 display: inline-block; */
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	background-color: #fffef2;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+	left: 12em;
+	top: -2em;
+	border-radius:5px;
+}
+
+.dropdown:hover .dropdown-content {
+	padding: 5px 16px 5px;
+	display: block;
+}
+
+#mini-menu{
+	display:none;
+}
+
+
+/* #######
+RESPONSIVE LAYOUT CSS
+####### */
+
+@media (max-width: 600px){ /* responsive layout break point */
+
+	#contentwrapper{
+		width: 100%;
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+	#main{
+		margin-left:auto;
+		margin-right:auto;
+		width: 100%;
+		margin-bottom: 60px;
+	}
+
+	#leftcolumn{
+		float: none;
+		width:100%;
+		margin-left:auto;
+		margin-right:auto;
+		margin-bottom: 10px;
+	}
+
+	#intro{
+		padding-top: 10px;
+		width: 95%;
+	}
+
+	#siteid{
+	padding: 0 0px 20px 0px;
+	}
+
+	#mini-menu{
+		display:block;
+		text-align: center;
+		padding: 20px;
+		text-transform: uppercase;
+		font-family: Quicksand;
+	}
+
+	#menu{
+		display:none;
+	}
+	
+	#twocolumn{
+		column-count:1;
+	}
+}
+
+
+/* #######
+IMAGES & GALLERIES
+####### */
+
+.gallerycontainer {
+	margin-bottom: 1em;
+} 
+
+.gallery{
+	padding: .5em ; 
+	background-color: #fff; 
+	margin: .5em; 
+	border: thin #c0c0c0 solid; 
+	border-radius: 10px;
+	float:left;
+	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.4);
+	z-index: 1;
+	display: table;
+}
+
+.gallerycaption{
+	text-align: center; 
+	text-transform: uppercase;
+	margin-top: 1em;
+	font-size: 11px;
+	display: table-caption;
+	caption-side: bottom;
+}
+
+.video{
+	padding: .5em ; 
+	background-color: #fff; 
+	margin: .5em; 
+	border: thin #c0c0c0 solid; 
+	border-radius: 10px;
+	float:left;
+	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.4);
+	z-index: 1;
+}
+
+/* #######
+Social Media
+####### */
+
+.social {
+	display: flex;
+	justify-content: center;
+	background: #ec008c;/*magenta*/
+	width: 12em;	border-radius: 5px;
+	padding: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 1px;
+	margin-bottom: 1px;
+	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.4);
+	z-index: 1;
+}
+
+.social-icons {
+	width: 1.2rem;
+	height: 1.2rem;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.social-icons-email {
+	background-image: url(/images/icons/email.svg);
+	margin: 0 .5rem 0 .5rem;
+}
+
+.social-icons-github {
+	background-image: url(/images/icons/github.svg);
+	margin: 0 .5rem 0 .5rem;
+}
+
+.social-icons-twitter {
+	background-image: url(/images/icons/twitter.svg);
+	margin: 0 .5rem 0 .5rem;
+}
+
+.social-icons-linkedin {
+	background-image: url(/images/icons/linkedin.svg);
+	margin: 0 .5rem 0 .5rem;
+}
+
+.social-icons-youtube {
+	background-image: url(/images/icons/youtube.svg);
+	margin: 0 .5rem 0 .5rem;
+}
+
+.social-icons-instagram {
+	background-image: url(/images/icons/instagram.svg);
+	margin: 0 .5rem 0 .5rem;
+}
+
+.social-icons-facebook {
+	background-image: url(/images/icons/facebook.svg);
+	margin: 0 .5rem 0 .5rem;
+}
+

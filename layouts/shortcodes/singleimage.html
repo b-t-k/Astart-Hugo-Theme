@@ -1,0 +1,42 @@
+{{/*
+https://regisphilibert.com/blog/2018/01/hugo-page-resources-and-how-to-use-them/
+Shows single image from page bundle
+{{< singleimage "\*cats\*" "This is a caption" Fill "200x200" "http://astart.ca">}}
+*/}}
+
+{{ $images := $.Page.Resources.GetMatch (.Get 0)}}
+{{ $caption := .Get 1 }}
+{{ $command := .Get 2 }}
+{{ $sizeparam := .Get 3 }}
+{{ $size := (printf "x%s" ($sizeparam)) }}
+{{ if eq $command "Fit"}}
+{{ .Scratch.Set "image" ($images.Fit $sizeparam) }}
+{{ else if eq $command "Resize"}}
+{{ .Scratch.Set "image" ($images.Resize $size) }}
+{{ else if eq $command "Fill"}}
+{{ .Scratch.Set "image" ($images.Fill $sizeparam) }}
+{{ else }}
+{{ errorf "Invalid image processing command: Must be one of Fit, Fill or Resize."}}
+{{ end }}
+{{ $image := .Scratch.Get "image" }}
+
+
+{{ .Scratch.Set "original" ($images.Fit "1200x800") }}
+{{ $original := .Scratch.Get "original" }}
+
+<figure class="gallery">
+	<a href=
+	" {{ with (.Get 4) }} {{ . }}" 
+		target="_blank" 
+	{{else}}
+		{{ $original.Permalink}}" 
+		data-fancybox="group2"
+		data-animation-effect="zoom" 
+		data-caption="{{ $caption }}"
+	{{end}}>
+		<img src="{{ $image.RelPermalink }}" alt="{{ $caption }}"/>
+	</a>
+	<figcaption class="gallerycaption">{{ $caption }}</figcaption>
+</figure>
+
+

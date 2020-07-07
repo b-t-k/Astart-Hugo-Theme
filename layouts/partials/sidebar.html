@@ -1,0 +1,76 @@
+	<div id="leftcolumn">
+		<div class="inner">
+			<div id="siteid"><a href="/"><img class="center" src="{{ "images/BK-ID-headerlogo.png" | relURL }}"></a></div>
+
+			<div id="mini-menu">
+				<form>Menu</form>
+					<select  onChange="window.location.href=this.value">
+						{{ range .Site.Menus.main }}
+							{{ if .HasChildren }}
+								{{ range .Children }}
+									<option value= "{{.URL}}">
+										{{ .Name }}
+									</option>
+							{{ end }}
+							{{ else}}
+								<option value= "{{.URL}}">
+								{{ .Name }}
+								</option>
+							{{ end }}
+					{{ end }}
+					</select>
+				</form>
+			</div>
+
+			<!-- Main menu start -->
+			<nav id="menu">
+				<ul class="menulist">
+					{{ $currentPage := . }}
+					{{ range .Site.Menus.main }}
+						{{ if .HasChildren }}
+						<div class="dropdown">
+							<li class="sub-menu-head {{ if $currentPage.HasMenuCurrent `main` . }}active{{ end }}">
+								<!--<a href="{{ .Page }}">-->
+								<a href="{{ .URL }}">
+									{{ .Name }}
+								</a>
+							</li>
+							<div class="dropdown-content">
+								<ul class="sub-menu">
+									{{ range .Children }}
+										<li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+											<a href="{{ .URL }}">{{ .Name }}</a>
+										</li>
+									{{ end }}
+								</ul>
+							</div>
+						</div>
+						{{ else }}
+						<li class="{{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}">
+							<a href="{{.URL}}">
+								{{ .Name }}
+							</a>
+						{{end}}
+						</li>
+					{{ end }}
+				</ul>
+			</nav>
+			<!-- Main menu end -->
+
+			{{ partial "social" . }}
+
+			<!-- Secondary menu start -->
+			<nav id="menu">
+				<ul class="menulist">
+					{{ $currentPage := . }}
+					{{ range .Site.Menus.secondary }}
+					<li class="{{if or ($currentPage.IsMenuCurrent "secondary" .) ($currentPage.HasMenuCurrent "secondary" .) }} active{{end}}">
+						<a  href="{{.URL}}">{{ .Name }}</a>
+					</li>
+					{{ end }}
+				</ul>
+			</nav>
+			<!-- Secondary menu end -->
+
+		</div>
+	</div>

@@ -1,0 +1,22 @@
+{{/*
+{{< video src="Extro-V2.mp4" poster="BK-ID-Poster-V2-400x225.png" width="200">}}
+Show a video in Page Bundle
+- optional width
+*/}}
+
+{{ if isset .Params  "width" }} 
+	{{ $width := .Get "width" }} 
+	{{ .Scratch.Set "width" ($width) }}
+{{else}} 
+	{{ $width := "400" }}
+	{{ .Scratch.Set "width" ($width) }}
+{{end}}
+
+{{ $width := .Scratch.Get "width" }}
+
+<div class="video"> 
+	<video src="{{ .Get "src" }}" width="{{ $width }}" poster="{{.Get "poster"}}" controls></video>
+</div>
+
+
+

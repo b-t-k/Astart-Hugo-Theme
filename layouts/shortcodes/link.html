@@ -1,0 +1,10 @@
+{{/*
+	Make sure to skip the leading `/`.
+	Examples:
+	- Link to root page:
+		{{% link Home %}}
+	- Link to a post:
+		{{< link "link text" "posts/some-title" >}}
+*/}}
+
+<a href="{{ site.BaseURL }}{{ if isset .Params 1 }}{{ .Get 1 }}{{ end }}"/>{{ .Get 0 }}</a> 

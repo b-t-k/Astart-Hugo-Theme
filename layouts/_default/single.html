@@ -1,0 +1,7 @@
+{{ define "main" }}
+	<h1 class="post__title">{{.Title}}<span class="fancy" style="color:{{ .Params.dotColor}};">.</span></h1>
+	<!--{{ .Date.Format "Jan 2 2006" }}-->
+
+	{{ .Content }}
+
+{{ end }}

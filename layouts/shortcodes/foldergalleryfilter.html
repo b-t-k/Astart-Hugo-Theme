@@ -1,0 +1,25 @@
+{{/*
+
+A gallery that loads all the imges in the Page bundle folder and applies filter
+• uses 1 param from shortcode {{< foldergalleryfilter "200" >}}
+
+*/}}
+
+{{ $images := .Page.Resources.Match "*" }}
+{{ $sizeparam := (.Get 0) }}
+{{ $size := (printf "x%s" ($sizeparam)) }}
+
+<div class="clearfix">
+	{{ range $images }}
+	{{ $original := .Fit "1200x800" }}
+	{{ $resized := .Resize $size }}
+	{{ $filtered := $resized.Filter (images.Sepia 100)  }}
+
+	<figure class="gallery">
+		<a href="{{ $filtered.Permalink}}" data-fancybox data-animation-effect="zoom">
+			<img src="{{ $resized.RelPermalink }}" >
+		</a>
+	</figure>
+
+{{ end }}
+</div>

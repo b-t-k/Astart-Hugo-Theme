@@ -1,0 +1,32 @@
+{{/*
+{{< youtube id="RabX4yNyd6s" width="600" >}}
+Modified Youtube shortcode with option height and width
+*/}}
+
+
+
+{{ if isset .Params  "width" }}
+	{{$width :=  .Get "width"  }}
+	{{$widthfloat := float $width}}
+	{{$height := div $widthfloat 1.77}}
+
+	{{ .Scratch.Set "height" ($height) }}
+	{{ .Scratch.Set "width" ($width) }}
+{{end}}
+
+{{ $height := .Scratch.Get "height" }}
+{{ $width := .Scratch.Get "width" }}
+
+<div class="embed video-player">
+	<iframe class="video" type="text/html" 
+		{{ if isset .Params  "width" }}
+			width="{{$width}}" height="{{$height}}"
+		{{else}}
+			width="400" height="225" 
+		{{end}}
+		src="https://www.youtube.com/embed/{{ .Get "id" }}" 
+		allowfullscreen 
+		frameborder="0">
+</iframe>
+</div>
+

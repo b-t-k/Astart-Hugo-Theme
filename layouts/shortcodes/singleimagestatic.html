@@ -1,0 +1,34 @@
+{{/*
+Shows single image from /assets/images/
+{{< singleimagestatic "feather.jpg" "Fit 300x300" Fit "300x300" >}}
+*/}}
+
+{{ $images:= resources.GetMatch (printf "%s/%s" (.Site.Params.postingfolder ) (.Get 0)) }}
+{{ $caption := .Get 1 }}
+{{ $command := .Get 2 }}
+{{ $sizeparam := .Get 3 }}
+{{ $size := (printf "x%s" ($sizeparam)) }}
+{{ if eq $command "Fit"}}
+{{ .Scratch.Set "image" ($images.Fit $sizeparam) }}
+{{ else if eq $command "Resize"}}
+{{ .Scratch.Set "image" ($images.Resize $size) }}
+{{ else if eq $command "Fill"}}
+{{ .Scratch.Set "image" ($images.Fill $sizeparam) }}
+{{ else }}
+{{ errorf "Invalid image processing command: Must be one of Fit, Fill or Resize."}}
+{{ end }}
+{{ $image := .Scratch.Get "image" }}
+
+
+{{ .Scratch.Set "original" ($images.Fit "1200x800") }}
+{{ $original := .Scratch.Get "original" }}
+
+<div class="gallerycontainer">
+<figure class="gallery">
+	<a href="{{ $original.Permalink}}">
+		<img src="{{ $image.RelPermalink }}" alt="{{ $caption }}" />
+	</a>
+	<figcaption class="gallerycaption">{{ $caption }}</figcaption>
+</figure>
+</div>
+
