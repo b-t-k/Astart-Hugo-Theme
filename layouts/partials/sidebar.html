@@ -5,6 +5,7 @@
 			<div id="mini-menu">
 				<form>Menu</form>
 					<select  onChange="window.location.href=this.value">
+					<option value="" selected disabled hidden>Select</option>
 						{{ range .Site.Menus.main }}
 							{{ if .HasChildren }}
 								{{ range .Children }}
