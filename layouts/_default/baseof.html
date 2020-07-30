@@ -17,18 +17,17 @@
 
 		<div id="maincontainer">
 			{{ partial "header" .}}
-			{{ partial "sidebar" . }}
+			<div id="mainbody">
+				{{ partial "sidebar" . }}
+				<div id="main">
+					<div class="inner">
+							{{ block "main" . }}
 
-<div id="main">
-	<div class="inner">
-			{{ block "main" . }}
-
-			{{ end }}
-	</div>
-</div>
-
+							{{ end }}
+					</div>
+				</div>
+			</div>
 			{{partial "footer" . }}
-
 		</div>
 	</body>
 

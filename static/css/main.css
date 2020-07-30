@@ -1,6 +1,6 @@
 /*!
 Theme Name: Astart
-Version: 1.0.0
+Version: 2.0.0
 Domain: astart.ca
 */
 
@@ -161,13 +161,21 @@ CONTAINERS
 }
 
 .ebooklist{
-	Float: left;
-	margin:10px 5px 70px 5px;
+	display:flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	/* margin:10px 5px 70px 5px;
 	padding: 5px;
 	height: 200px;
-	width:140px;
-	text-align: center;
+	width:140px; */
 }
+.ebookitem{
+	text-align: center;
+	padding: 0 .5em 2em .5em;
+	width:140px;
+}
+
 .ebooklist img{
 	width: 140px;
 }
@@ -187,9 +195,13 @@ BLOCKS & PARTIALS
 	height: 25px;
 }
 
+#mainbody{
+	display: flex;
+	justify-content: center;
+}
+
 #main{
-	float: left;
-	width: 70%;
+	flex: 2 0 70%;
 	background: #fff;
 	color: #58595b;
 	max-width: 1200px;
@@ -197,8 +209,7 @@ BLOCKS & PARTIALS
 }
 
 #leftcolumn{
-	float: left;
-	width: 30%; /*Width of left column*/
+	flex: 0 1 30%;
 	background: #fff;
 	max-width: 300px;
 	margin-bottom: 60px; /*height of footer*/
@@ -345,6 +356,11 @@ RESPONSIVE LAYOUT CSS
 		margin-right:auto;
 	}
 
+	#mainbody{
+		display: flex;
+		flex-direction: column;
+	}
+
 	#main{
 		margin-left:auto;
 		margin-right:auto;
@@ -353,7 +369,6 @@ RESPONSIVE LAYOUT CSS
 	}
 
 	#leftcolumn{
-		float: none;
 		width:100%;
 		margin-left:auto;
 		margin-right:auto;
@@ -370,11 +385,24 @@ RESPONSIVE LAYOUT CSS
 	}
 
 	#mini-menu{
-		display:block;
+		margin: 0 auto;
+		display:flex;
+		flex-direction: column;
 		text-align: center;
-		padding: 20px;
 		text-transform: uppercase;
 		font-family: Quicksand;
+		padding: 1em 2em;
+		min-width: 100px;
+
+	}
+	#mini-menu select{
+		padding: 1.25em 1em 1.25em 2em;
+		margin: 5px 0px 10px;
+		background-color: #ec008c; /* magenta */
+		color: #fff;
+		border: none;
+		border-radius: 5px;
+		box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.4);
 	}
 
 	#menu{
@@ -392,7 +420,11 @@ IMAGES & GALLERIES
 ####### */
 
 .gallerycontainer {
-	margin-bottom: 1em;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: flex-start;
 } 
 
 .gallery{
@@ -401,19 +433,19 @@ IMAGES & GALLERIES
 	margin: .5em; 
 	border: thin #c0c0c0 solid; 
 	border-radius: 10px;
-	float:left;
 	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.4);
-	z-index: 1;
-	display: table;
+	display:table;
 }
 
 .gallerycaption{
+	width: inherit;
 	text-align: center; 
 	text-transform: uppercase;
-	margin-top: 1em;
+	padding: .5em;
 	font-size: 11px;
-	display: table-caption;
+	display:table-caption;
 	caption-side: bottom;
+
 }
 
 .video{
@@ -422,7 +454,6 @@ IMAGES & GALLERIES
 	margin: .5em; 
 	border: thin #c0c0c0 solid; 
 	border-radius: 10px;
-	float:left;
 	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.4);
 	z-index: 1;
 }
@@ -433,57 +464,25 @@ Social Media
 
 .social {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	background: #ec008c;/*magenta*/
-	width: 12em;	border-radius: 5px;
-	padding: 5px;
+	width: 13em;
+	border-radius: 5px;
+	padding: 5px 0;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 1px;
 	margin-bottom: 1px;
 	box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.4);
-	z-index: 1;
 }
 
-.social-icons {
+.social-icons img{
 	width: 1.2rem;
 	height: 1.2rem;
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-
-.social-icons-email {
-	background-image: url(/images/icons/email.svg);
+	/* background-size: contain;
+	background-repeat: no-repeat; */
 	margin: 0 .5rem 0 .5rem;
 }
 
-.social-icons-github {
-	background-image: url(/images/icons/github.svg);
-	margin: 0 .5rem 0 .5rem;
-}
-
-.social-icons-twitter {
-	background-image: url(/images/icons/twitter.svg);
-	margin: 0 .5rem 0 .5rem;
-}
-
-.social-icons-linkedin {
-	background-image: url(/images/icons/linkedin.svg);
-	margin: 0 .5rem 0 .5rem;
-}
-
-.social-icons-youtube {
-	background-image: url(/images/icons/youtube.svg);
-	margin: 0 .5rem 0 .5rem;
-}
-
-.social-icons-instagram {
-	background-image: url(/images/icons/instagram.svg);
-	margin: 0 .5rem 0 .5rem;
-}
-
-.social-icons-facebook {
-	background-image: url(/images/icons/facebook.svg);
-	margin: 0 .5rem 0 .5rem;
-}
 

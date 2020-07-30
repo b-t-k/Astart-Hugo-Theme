@@ -2,13 +2,12 @@
 A gallery that loads all the images in the Page bundle folder
 • uses 1 param from shortcode {{< foldergallery "200" >}}
 */}}
-
+<div class="gallerycontainer">
 {{ $images := .Page.Resources.Match "*" }}
 {{ $sizeparam := (.Get 0) }}
 {{ $size := (printf "x%s" ($sizeparam)) }}
 
-<div class="gallerycontainer">
-<div class="clearfix">
+
 	{{ range $images }}
 	{{ $original := .Fit "1200x800" }}
 	{{ $resized := .Resize $size }}
@@ -20,7 +19,6 @@ A gallery that loads all the images in the Page bundle folder
 	</figure>
 
 {{ end }}
-</div>
 </div>
 
 

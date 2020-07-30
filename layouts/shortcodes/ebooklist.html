@@ -3,16 +3,18 @@
 -calls json file /data/ebooklist.json
 */}}
 
+<div class= "ebooklist">
 {{ range .Site.Data.ebooklist.books }}
 
-<div class= "ebooklist">
-	<a href="{{ .link }}"  target="_blank">
-		<img src="{{ .coverlink }}">
-	</a><br>
-	<b><i>{{.title}}</i></b><br>
-	{{.author }}
-</div>
-<div class="clearfix">
+	<div class="ebookitem">
+		<a href="{{ .link }}"  target="_blank">
+			<img src="{{ .coverlink }}">
+		</a><br>
+		<b><i>{{.title}}</i></b><br>
+		{{.author }}
+	</div>
 
 {{ end }}
 
+
+</div>
