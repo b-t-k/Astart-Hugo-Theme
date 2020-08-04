@@ -112,12 +112,6 @@ blockquote{
 
 /* SPECIAL */
 
-.clearfix::after {/* clear after floats */
-	content: "";
-	clear: both;
-	display: table;
-}
-
 .fancy{/*dot on homepage*/
 	font-size: 4.5em;
 	font-family: serif;
@@ -483,6 +477,13 @@ Social Media
 	/* background-size: contain;
 	background-repeat: no-repeat; */
 	margin: 0 .5rem 0 .5rem;
+}
+
+.social-icons:hover{
+	filter: drop-shadow(2px 2px 2px rgb(32, 32, 32, 0.4));
+	position: relative; 
+	top: -2px;
+	left: -1px;
 }
 
 
