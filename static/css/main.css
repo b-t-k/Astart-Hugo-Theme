@@ -168,6 +168,9 @@ CONTAINERS
 	text-align: center;
 	padding: 0 .5em 2em .5em;
 	width:140px;
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
 }
 
 .ebooklist img{
