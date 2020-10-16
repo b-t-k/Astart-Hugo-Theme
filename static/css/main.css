@@ -154,6 +154,10 @@ CONTAINERS
 	padding: 10px;
 }
 
+.inner p {
+	max-width: 90ch;
+}
+
 .ebooklist{
 	display:flex;
 	flex-direction: row;
